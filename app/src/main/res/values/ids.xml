@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="img_profile_picture" type="id" />
+    <item name="img" type="id" />
+</resources>
