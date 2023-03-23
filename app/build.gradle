@@ -36,7 +36,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+    implementation 'com.squareup.picasso:picasso:2.8'
+
+    implementation 'me.relex:circleindicator:2.1.6'
+
+    implementation("com.tbuonomo:dotsindicator:4.3")
+
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'

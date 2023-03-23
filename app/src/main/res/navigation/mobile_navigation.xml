@@ -32,4 +32,9 @@
         android:name="com.kg.taskapp.ui.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/onBoardFragment"
+        android:name="com.kg.taskapp.ui.onBoard.OnBoardFragment"
+        android:label="fragment_on_board"
+        tools:layout="@layout/fragment_on_board" />
 </navigation>
