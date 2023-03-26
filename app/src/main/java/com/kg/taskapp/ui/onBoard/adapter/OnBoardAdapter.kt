@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.kg.taskapp.databinding.ItemOnBoardingBinding
 import com.kg.taskapp.model.OnBoard
 import com.kg.taskapp.utils.loadImage
-import com.squareup.picasso.Picasso
 
 class OnBoardAdapter(private val onClick:() -> Unit,
                      private val onClickNext:() -> Unit): Adapter<OnBoardAdapter.OnBoardViewHolder>() {

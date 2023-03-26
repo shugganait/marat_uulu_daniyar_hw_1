@@ -14,6 +14,7 @@
         android:layout_marginTop="16dp"
         android:layout_gravity="center">
         <ImageView
+            android:id="@+id/img_profile"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:src="@mipmap/ic_profile_picture_foreground"
@@ -21,10 +22,11 @@
     </androidx.cardview.widget.CardView>
 
     <EditText
+        android:id="@+id/et_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/enter_your_nickname"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="24dp"
-        />
+        android:layout_marginTop="24dp" />
 
 </LinearLayout>

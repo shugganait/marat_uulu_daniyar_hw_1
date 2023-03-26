@@ -12,7 +12,7 @@
         android:id="@+id/tv_title"
         tools:text="Title"
         android:textSize="20sp"
-        android:textColor="@color/black"
+        android:textStyle="bold"
         />
     <TextView
         android:layout_width="wrap_content"
