@@ -35,14 +35,15 @@ class TaskFragment : Fragment() {
             binding.apply {
                 etTitle.setText(args.title)
                 etDesc.setText(args.desc)
+                btnSave.setOnClickListener {
+                    if (binding.etTitle.text.isNotEmpty()) {
+                        changeSavedItem(args.id!!)
+                    } else if (binding.etDesc.text.isNotEmpty()) {
+                        changeSavedItem(args.id!!)
+                    } else binding.etDesc.error = "Error: Empty field"
+                }
             }
-            binding.btnSave.setOnClickListener {
-                if (binding.etTitle.text.isNotEmpty()) {
-                    changeSavedItem(args.id!!)
-                } else if (binding.etDesc.text.isNotEmpty()) {
-                    changeSavedItem(args.id!!)
-                } else binding.etDesc.error = "Error: Empty field"
-            }
+
         } else {
             binding.btnSave.setOnClickListener {
                 if (binding.etTitle.text.isNotEmpty()) {
