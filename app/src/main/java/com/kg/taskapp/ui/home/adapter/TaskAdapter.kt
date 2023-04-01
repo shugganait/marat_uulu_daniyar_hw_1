@@ -14,8 +14,7 @@ import kotlin.properties.Delegates
 
 
 class TaskAdapter(
-    var onItemClick: ((Task) -> Unit)? = null,
-    var onItemLongClick: ((Task) -> Unit)? = null
+    var onItemClick: ((Task) -> Unit)? = null, var onItemLongClick: ((Task) -> Unit)? = null
 ) : Adapter<TaskAdapter.TaskViewHolder>() {
 
     private val data: ArrayList<Task> = arrayListOf()
@@ -40,9 +39,7 @@ class TaskAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         return TaskViewHolder(
             ItemTaskBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+                LayoutInflater.from(parent.context), parent, false
             )
         )
     }
@@ -56,18 +53,9 @@ class TaskAdapter(
     inner class TaskViewHolder(private val binding: ItemTaskBinding) : ViewHolder(binding.root) {
         fun bind(task: Task) {
             binding.apply {
-                if (isPrime(adapterPosition)){
-                    tvTitle.setTextColor(Color.parseColor("#FFFFFF"))
-                    tvDesc.setTextColor(Color.parseColor("#FFFFFF"))
-                    itemTask.setBackgroundColor(Color.parseColor("#000000"))
-                } else {
-                    tvTitle.setTextColor(Color.parseColor("#000000"))
-                    tvDesc.setTextColor(Color.parseColor("#000000"))
-                    itemTask.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                }
                 tvTitle.text = task.title
                 tvDesc.text = task.desc
-
+                setBlackAndWhiteBG()
             }
             itemView.setOnClickListener {
                 onItemClick?.invoke(data[adapterPosition])
@@ -78,10 +66,18 @@ class TaskAdapter(
                 return@setOnLongClickListener true
             }
         }
-
-        private fun isPrime(n: Int): Boolean {
-            return (n%2==0)
+        private fun setBlackAndWhiteBG() {
+            binding.apply {
+                if ((adapterPosition % 2 == 0)) {
+                    tvTitle.setTextColor(Color.parseColor("#FFFFFF"))
+                    tvDesc.setTextColor(Color.parseColor("#FFFFFF"))
+                    itemTask.setBackgroundColor(Color.parseColor("#000000"))
+                } else {
+                    tvTitle.setTextColor(Color.parseColor("#000000"))
+                    tvDesc.setTextColor(Color.parseColor("#000000"))
+                    itemTask.setBackgroundColor(Color.parseColor("#FFFFFF"))
+                }
+            }
         }
     }
-
 }
