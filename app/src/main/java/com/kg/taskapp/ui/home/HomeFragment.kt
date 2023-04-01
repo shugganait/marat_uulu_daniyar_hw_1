@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.kg.taskapp.App
@@ -24,9 +25,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private val adapter = TaskAdapter()
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -44,33 +43,31 @@ class HomeFragment : Fragment() {
         initListeners()
     }
 
-
     @SuppressLint("NotifyDataSetChanged")
     private fun initListeners() {
-        adapter.onItemClick={
-            val bundle = Bundle()
-            bundle.putSerializable(KEY_FOR_EDIT, it)
-            bundle.putBoolean(KEY_FOE_FUN, true)
-            findNavController().navigate(R.id.action_navigation_home_to_task_fragment, bundle)
+        adapter.onItemClick = {
+            findNavController().navigate(R.id.action_navigation_home_to_task_fragment, bundleOf(
+                KEY_FOR_EDIT to it, KEY_FOR_FUN to true))
         }
-        adapter.onItemLongClick={
+        adapter.onItemLongClick = {
             AlertDialog.Builder(requireContext())
-                .setMessage("Are you sure, that you want to delete this note?")
-                .setNegativeButton("Cancel") { dialogInterface, i ->
-                }
-                .setPositiveButton("Yes") { dialogInterface, i ->
+              .setMessage("Are you sure, that you want to delete this note?")
+                .setNegativeButton("Cancel") { d, i ->
+                    d.dismiss()
+                }.setPositiveButton("Yes") { d, i ->
                     App.db.taskDao().deleteById(it.id!!)
-                    Toast.makeText(requireContext(), "${it.title} ${it.desc} was deleted", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(), "${it.title} ${it.desc} was deleted", Toast.LENGTH_SHORT
+                    ).show()
                     adapter.delete(TaskAdapter.getAdapterPosition)
-                }
-                .show()
-
+                    d.dismiss()
+                }.show()
         }
     }
 
-    companion object{
-        const val KEY_FOR_EDIT="KeyForEdit"
-        const val KEY_FOE_FUN="KeyFoeOper"
+    companion object {
+        const val KEY_FOR_EDIT = "KeyForEdit"
+        const val KEY_FOR_FUN = "KeyFoeOper"
     }
 
     override fun onDestroyView() {

@@ -3,25 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="16dp"
     android:orientation="vertical"
-    android:background="@drawable/bg_item_task">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_title"
-        tools:text="Title"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_desc"
-        tools:text="Description"
-        android:textSize="16sp"
-        android:layout_marginTop="4dp"
-        />
-
+    android:padding="16dp"
+    android:id="@+id/item_task">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_title"
+            tools:text="Title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_desc"
+            tools:text="Description"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
+            />
 </LinearLayout>

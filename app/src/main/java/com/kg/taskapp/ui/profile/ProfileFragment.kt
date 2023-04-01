@@ -40,8 +40,11 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pref = Pref(requireContext())
+        binding.imgProfile.loadImage(pref.getProfilePicture())
+        binding.imgProfile.setOnClickListener {
+            saveImage()
+        }
         saveNickName()
-        saveImage()
     }
 
     private fun saveNickName() {
@@ -52,12 +55,9 @@ class ProfileFragment : Fragment() {
     }
 
     private fun saveImage() {
-        binding.imgProfile.loadImage(pref.getProfilePicture())
-        binding.imgProfile.setOnClickListener {
             val pickImageIntent = Intent()
             pickImageIntent.type = "image/*"
             pickImageIntent.action = Intent.ACTION_PICK
             launcher.launch(pickImageIntent)
-        }
     }
 }

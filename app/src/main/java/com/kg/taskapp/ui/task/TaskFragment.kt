@@ -28,8 +28,8 @@ class TaskFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.etTitle.showAutoKeyboard(requireContext(), binding.etTitle)
-        if (arguments?.getBoolean(HomeFragment.KEY_FOE_FUN) == true){
+        showAutoKeyboard(requireContext(), binding.etTitle)
+        if (arguments?.getBoolean(HomeFragment.KEY_FOR_FUN) == true){
             binding.btnSave.setText("Update")
             val args = arguments?.getSerializable(HomeFragment.KEY_FOR_EDIT) as Task
             binding.apply {
@@ -42,7 +42,6 @@ class TaskFragment : Fragment() {
                 } else if (binding.etDesc.text.isNotEmpty()) {
                     changeSavedItem(args.id!!)
                 } else binding.etDesc.error = "Error: Empty field"
-
             }
         } else {
             binding.btnSave.setOnClickListener {
