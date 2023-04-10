@@ -45,4 +45,14 @@
         android:name="com.kg.taskapp.ui.onBoard.OnBoardFragment"
         android:label="fragment_on_board"
         tools:layout="@layout/fragment_on_board" />
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.kg.taskapp.ui.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" />
+    <fragment
+        android:id="@+id/authWithPhoneNumberFragment"
+        android:name="com.kg.taskapp.ui.auth.withPhoneNumber.AuthWithPhoneNumberFragment"
+        android:label="fragment_auth_with_phone_number"
+        tools:layout="@layout/fragment_auth_with_phone_number" />
 </navigation>

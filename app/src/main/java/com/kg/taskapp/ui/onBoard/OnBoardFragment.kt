@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.kg.taskapp.R
 import com.kg.taskapp.data.local.Pref
 import com.kg.taskapp.databinding.FragmentOnBoardBinding
 import com.kg.taskapp.ui.onBoard.adapter.OnBoardAdapter
