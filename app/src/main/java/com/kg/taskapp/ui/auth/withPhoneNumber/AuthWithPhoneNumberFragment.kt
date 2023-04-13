@@ -17,6 +17,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import com.kg.taskapp.R
 import com.kg.taskapp.databinding.FragmentAuthWithPhoneNumberBinding
 import com.kg.taskapp.utils.showAutoKeyboard
+import com.kg.taskapp.utils.showToast
 import java.util.concurrent.TimeUnit
 import kotlin.properties.Delegates
 
@@ -27,14 +28,14 @@ class AuthWithPhoneNumberFragment : Fragment() {
     private var isReadyToStart = false
     companion object {
         lateinit var verificationID: String
-        val REQ_CODE_FR_RESULT = "12121"
-        val KEY_FOR_BOOLEAN_RESULT = "12212"
+        const val REQ_CODE_FR_RESULT = "12121"
+        const val KEY_FOR_BOOLEAN_RESULT = "12212"
     }
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAuthWithPhoneNumberBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -45,7 +46,7 @@ class AuthWithPhoneNumberFragment : Fragment() {
         binding.apply {
             showAutoKeyboard(requireContext(), etPhoneNumber)
             btnGenCode.setOnClickListener {
-                if (etPhoneNumber.text.isNotEmpty()) {
+                if (etPhoneNumber.text!!.isNotEmpty()) {
                     sendVerificationCode(etPhoneNumber.text.toString())
                 } else {
                     etPhoneNumber.error = "Field for phone nubmber is empty!!!"
@@ -53,7 +54,7 @@ class AuthWithPhoneNumberFragment : Fragment() {
 
             }
             btnVerify.setOnClickListener {
-                if (etCode.text.isNotEmpty()) {
+                if (etCode.text!!.isNotEmpty()) {
                     verifyCode(etCode.text.toString())
                 } else {
                     etCode.error = "Field for phone nubmber is empty!!!"
@@ -99,7 +100,7 @@ class AuthWithPhoneNumberFragment : Fragment() {
         }
 
         override fun onVerificationFailed(e: FirebaseException) {
-            Toast.makeText(requireContext(), "Verification failed", Toast.LENGTH_SHORT).show()
+            showToast("Verification failed")
             // Show a message and update the UI
         }
 
@@ -108,8 +109,7 @@ class AuthWithPhoneNumberFragment : Fragment() {
         ) {
             super.onCodeSent(verificationId, token)
             verificationID = verificationId
-            Toast.makeText(requireContext(), "Checking was successfully completed", Toast.LENGTH_SHORT ).show()
-
+            showToast("Checking was successfully completed")
         }
     }
 

@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">TaskApp</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">Add List</string>
+    <string name="title_notifications">List</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="profile">Profile</string>
-    <string name="enter_your_nickname">Enter your nickname</string>
+    <string name="enter_your_nickname">nickname</string>
+    <string name="nickname">Nickname</string>
+    <string name="tilte">Tilte</string>
+    <string name="description">Description</string>
+    <string name="car_name">Car name</string>
+    <string name="car_model">Car model</string>
+    <string name="save">Save</string>
 </resources>

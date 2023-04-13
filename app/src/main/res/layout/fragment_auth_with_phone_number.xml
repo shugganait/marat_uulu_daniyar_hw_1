@@ -3,18 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".ui.auth.withPhoneNumber.AuthWithPhoneNumberFragment">
 
-    <EditText
-        android:id="@+id/et_phone_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your phone number"
-        android:inputType="phone"
+    <com.google.android.material.textfield.TextInputLayout
+        android:hint="Phone number"
         android:layout_marginBottom="20dp"
-        />
+        style="@style/TextInputEditTextStyle">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_phone_number"
+            android:inputType="phone"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,14 +27,18 @@
         android:layout_marginBottom="20dp"
         android:id="@+id/btn_gen_code"
         />
-    <EditText
-        android:id="@+id/et_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter the recent code"
-        android:inputType="number"
+    <com.google.android.material.textfield.TextInputLayout
+        android:hint="Code"
         android:layout_marginBottom="20dp"
-        />
+        app:endIconMode="password_toggle"
+        style="@style/TextInputEditTextStyle">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_code"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

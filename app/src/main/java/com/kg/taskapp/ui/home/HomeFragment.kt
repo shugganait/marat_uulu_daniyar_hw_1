@@ -14,6 +14,7 @@ import com.kg.taskapp.App
 import com.kg.taskapp.R
 import com.kg.taskapp.databinding.FragmentHomeBinding
 import com.kg.taskapp.ui.home.adapter.TaskAdapter
+import com.kg.taskapp.utils.showToast
 
 
 class HomeFragment : Fragment() {
@@ -56,9 +57,7 @@ class HomeFragment : Fragment() {
                     d.dismiss()
                 }.setPositiveButton("Yes") { d, i ->
                     App.db.taskDao().deleteById(it.id!!)
-                    Toast.makeText(
-                        requireContext(), "${it.title} ${it.desc} was deleted", Toast.LENGTH_SHORT
-                    ).show()
+                    showToast("${it.title}, ${it.desc} was deleted")
                     adapter.delete(TaskAdapter.getAdapterPosition)
                     d.dismiss()
                 }.show()

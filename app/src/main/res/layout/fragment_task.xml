@@ -3,24 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginHorizontal="16dp"
     tools:context=".ui.task.TaskFragment"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/et_title"
-        android:hint="Title"
-        android:layout_marginTop="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <EditText
-        android:id="@+id/et_desc"
-        android:hint="Description"
-        android:layout_marginTop="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:hint="@string/tilte"
+        style="@style/TextInputEditTextStyle">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_title"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:hint="@string/description"
+        style="@style/TextInputEditTextStyle">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_desc"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/btn_save"
         android:layout_width="wrap_content"

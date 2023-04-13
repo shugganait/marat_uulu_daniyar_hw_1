@@ -36,9 +36,9 @@ class TaskFragment : Fragment() {
                 etTitle.setText(args.title)
                 etDesc.setText(args.desc)
                 btnSave.setOnClickListener {
-                    if (binding.etTitle.text.isNotEmpty()) {
+                    if (binding.etTitle.text!!.isNotEmpty()) {
                         changeSavedItem(args.id!!)
-                    } else if (binding.etDesc.text.isNotEmpty()) {
+                    } else if (binding.etDesc.text!!.isNotEmpty()) {
                         changeSavedItem(args.id!!)
                     } else binding.etDesc.error = "Error: Empty field"
                 }
@@ -46,9 +46,9 @@ class TaskFragment : Fragment() {
 
         } else {
             binding.btnSave.setOnClickListener {
-                if (binding.etTitle.text.isNotEmpty()) {
+                if (binding.etTitle.text!!.isNotEmpty()) {
                     save()
-                } else if (binding.etDesc.text.isNotEmpty()) {
+                } else if (binding.etDesc.text!!.isNotEmpty()) {
                     save()
                 } else binding.etDesc.error = "Error: Empty field"
 

@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 
 fun ImageView.loadImage( url: String?){
@@ -15,4 +17,8 @@ fun showAutoKeyboard(context: Context, editText: EditText) {
         val keyboard = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         keyboard.showSoftInput(editText, 0)
                          }, 200)
+}
+
+fun Fragment.showToast(msg: String) {
+    Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
 }
